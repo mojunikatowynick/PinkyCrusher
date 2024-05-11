@@ -16,6 +16,9 @@ light_mask = 2
 visibility_layer = 2
 collision_layer = 2
 collision_mask = 3
+motion_mode = 1
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
 script = ExtResource("1_svwbh")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

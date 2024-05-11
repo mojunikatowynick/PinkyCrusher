@@ -31,22 +31,19 @@ func movement(delta):
 		var tran_x = transform.x * Input.get_axis("StrafeL", "StrafeR")
 		var tran_y = transform.y * Input.get_axis("Forward", "Back")
 		var tran = tran_x + tran_y
-		#print(velocity.length())
 		velocity = tran.normalized() * joe_speed 
 		rotation += rotation_direction * joe_turn_speed * delta
 
 func collider():
-	var vel = get_last_motion()
+
 	if get_slide_collision_count() > 0:
 		bounce = true
 		var collision = get_slide_collision(0)
 		if collision != null:
-			var bounce_dir = vel.bounce(collision.get_normal()).normalized()
-			move_and_collide(vel.bounce(collision.get_normal()))
-			await get_tree().create_timer(0.3).timeout
+			move_and_collide(velocity.bounce(collision.get_normal()).normalized())
+			await get_tree().create_timer(0.5).timeout
 			bounce = false
-			print(vel.bounce(collision.get_normal()), bounce_dir)
-		
+
 
 #func collision_wall():
 	#light_layer_1.monitoring = true
