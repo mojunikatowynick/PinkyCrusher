@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp05eymla3y1a"]
+
+[ext_resource type="Texture2D" uid="uid://bk7ua2hvcrsnb" path="res://Graphic/TopEdge.png" id="1_82f7t"]
+[ext_resource type="Script" path="res://Scenes/StaticBody2D.gd" id="2_ii6co"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbhbg"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snk6u"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bus83"]
+size = Vector2(64, 64)
+
+[node name="Top" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vbhbg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_82f7t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_snk6u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2"]
+script = ExtResource("2_ii6co")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_bus83")

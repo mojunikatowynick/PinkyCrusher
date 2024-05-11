@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4lcf5nja3rut"]
+
+[ext_resource type="Texture2D" uid="uid://dcsbrfgr30niq" path="res://Graphic/RightBottomCorner.png" id="1_tgean"]
+[ext_resource type="Script" path="res://Scenes/StaticBody2D.gd" id="2_6sssd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6lol"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s02h"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awwf4"]
+size = Vector2(64, 64)
+
+[node name="RightDown" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e6lol")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tgean")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1s02h")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2"]
+script = ExtResource("2_6sssd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_awwf4")
