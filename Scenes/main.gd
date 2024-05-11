@@ -6,6 +6,7 @@ var joe_spawn = Vector2.ZERO
 @onready var joe = $Joe
 @onready var player_camera = $PlayerCamera
 var game_cinematic: bool = true
+var immune: bool = false
 
 
 func _ready():
@@ -20,6 +21,7 @@ func _physics_process(delta):
 
 		camera_control()
 		collision_control()
+		$PlayerCamera/Control/ProgressBar.value = Global.joe_life
 
 func cinematic_end():
 	Global.cinematic = false
@@ -43,18 +45,29 @@ func camera_control():
 func collision_control():
 	
 	var collider = joe.get_last_slide_collision()
-	
+	#print(collider)
 	if collider == null:
 		pass
 	else:
 		
-		var collision_delta = joe.get_position_delta()
-		var collision_r_vel = joe.get_real_velocity()
+		#var collision_delta = joe.get_position_delta()
+		#var collision_r_vel = joe.get_real_velocity()
 		#print(collider)
 		#joe.collision_dmg(collision_delta)
 		var col = collider.get_collider()
 		if "collision" in col:
 			col.collision()
 		var col_pos = collider.get_position()
+		
+		
+		if col.is_in_group("walls"):
+			damage()
 
 
+func damage():
+	if immune == false:
+		Global.joe_life -= 10
+		immune = true
+		await get_tree().create_timer(0.5).timeout
+		immune = false
+		print(Global.joe_life)

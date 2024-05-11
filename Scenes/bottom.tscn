@@ -18,12 +18,13 @@ size = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_dxctw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 5
 texture = ExtResource("1_hcrqy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_50h0v")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2" groups=["walls"]]
 script = ExtResource("2_q3v1e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D2/StaticBody2D"]

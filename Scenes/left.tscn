@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_hi26j")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_48gj2")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CollisionShape2D2" groups=["walls"]]
 script = ExtResource("3_0jh1m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D2/StaticBody2D"]

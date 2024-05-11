@@ -35,8 +35,9 @@ func movement(delta):
 		rotation += rotation_direction * joe_turn_speed * delta
 
 func collider():
-
+	
 	if get_slide_collision_count() > 0:
+
 		bounce = true
 		var collision = get_slide_collision(0)
 		if collision != null:
