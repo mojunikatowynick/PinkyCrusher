@@ -1,41 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://chx8s8klqajft"]
+[gd_scene load_steps=10 format=3 uid="uid://chx8s8klqajft"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_i1yqg"]
 [ext_resource type="PackedScene" uid="uid://c8u22gviutc46" path="res://Scenes/joe.tscn" id="1_kxj0t"]
 [ext_resource type="PackedScene" uid="uid://ddnlreaanj0i7" path="res://Scenes/level_1.tscn" id="2_3ilc7"]
+[ext_resource type="PackedScene" uid="uid://d22d2q1kp4au6" path="res://Scenes/ui.tscn" id="4_gyx8o"]
 
-[sub_resource type="Gradient" id="Gradient_nanru"]
-offsets = PackedFloat32Array(0)
+[sub_resource type="Gradient" id="Gradient_hkmah"]
+offsets = PackedFloat32Array(0.0844156)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mt6k5"]
-gradient = SubResource("Gradient_nanru")
-width = 1024
-height = 1024
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t2xsy"]
+gradient = SubResource("Gradient_hkmah")
+width = 5000
+height = 5000
 
 [sub_resource type="Animation" id="Animation_gycyo"]
 resource_name = "Flash"
 length = 5.0
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Lights/LightLayer1:energy")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 1.2, 1.3, 1.7, 1.9, 2.2, 2.6, 3.6, 3.9, 4.1, 4.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 13.75, 0.0, 0.0, 26.15, 0.0, 26.15, 0.0, 26.15, 0.0, 0.56, 0.0, 0.0, 10.79]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(5),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -43,21 +31,21 @@ tracks/1/keys = {
 "method": &"cinematic_end"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lights/DirectionalLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.8, 1.2, 1.4, 1.5, 1.9, 2.1, 2.3, 3.5, 3.7, 3.8, 4, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.2, 0.5, 0.0, 0.0, 1.0, 1.0, 0.0, 1.2, 1.2, 0.0, 0.0, 1.2, 1.2, 0.0, 1.2]
+}
 
 [sub_resource type="Animation" id="Animation_qt7fc"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Lights/LightLayer1:energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wtru0"]
 _data = {
@@ -72,52 +60,30 @@ camera_zoom = 1.3
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2(-841.227, -938.989)
 scale = Vector2(2.00206, 3.08433)
-color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+color = Color(0.113725, 0.0705882, 0.0705882, 1)
 polygon = PackedVector2Array(-376, -95, 2055, -87, 2055, 996, -376, 996)
-
-[node name="Joe" parent="." instance=ExtResource("1_kxj0t")]
-position = Vector2(440, 216)
 
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="Level1" parent="Levels" instance=ExtResource("2_3ilc7")]
 
+[node name="Joe" parent="." instance=ExtResource("1_kxj0t")]
+position = Vector2(440, 216)
+
 [node name="PlayerCamera" type="Camera2D" parent="."]
 ignore_rotation = false
 
-[node name="Control" type="Control" parent="PlayerCamera"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="PlayerCamera/Control"]
-light_mask = 8
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 1
-offset_right = 100.0
-offset_bottom = 27.0
-show_percentage = false
-
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="LightLayer1" type="PointLight2D" parent="Lights"]
-position = Vector2(725, 541)
-energy = 0.0
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+energy = 1.2
 blend_mode = 1
-range_layer_max = 1
-texture = SubResource("GradientTexture2D_mt6k5")
 
-[node name="LightLayer2" type="PointLight2D" parent="Lights"]
-visible = false
-light_mask = 2
-position = Vector2(725, 541)
-color = Color(1, 0.105882, 1, 1)
-energy = 0.47
-range_layer_max = 1
-texture = SubResource("GradientTexture2D_mt6k5")
+[node name="HalfLightLayer" type="PointLight2D" parent="Lights"]
+position = Vector2(564, 464)
+energy = 0.5
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_t2xsy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -126,3 +92,7 @@ libraries = {
 
 [node name="IdleCamera" type="Marker2D" parent="."]
 position = Vector2(732.23, 600)
+
+[node name="UI" parent="." instance=ExtResource("4_gyx8o")]
+
+[connection signal="collided" from="." to="Levels/Level1" method="_on_main_collided"]

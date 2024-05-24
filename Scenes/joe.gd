@@ -14,6 +14,8 @@ func _ready():
 	
 func _physics_process(delta):
 	
+
+	
 	if Global.cinematic:
 		pass
 	else:
@@ -45,24 +47,6 @@ func collider():
 			await get_tree().create_timer(0.5).timeout
 			bounce = false
 
-
-#func collision_wall():
-	#light_layer_1.monitoring = true
-	#light_layer_2.monitoring = true
-#
-#
-#func _on_light_change_leyer_2_area_entered(area):
-	#if "collision_layer_1" in area:
-		#area.collision_layer_1
-	#else: 
-		#pass
-#
-#
-#func _on_light_change_leyer_3_area_entered(area):
-	#if "collision_layer_2" in area:
-		#area.collision_layer_2
-	#else: 
-		#pass
 
 
 

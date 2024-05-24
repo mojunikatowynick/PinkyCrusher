@@ -14,11 +14,11 @@ size = Vector2(64, 64)
 
 [node name="Right" type="Area2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_33lfg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_65mgw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_33lfg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_28jmo")

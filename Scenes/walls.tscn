@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdgsb8rk3c2u8"]
+
+[ext_resource type="Script" path="res://Walls.gd" id="1_sukcm"]
+[ext_resource type="Texture2D" uid="uid://cd2gjdxsbpnok" path="res://Graphic/BottomEdge.png" id="2_ol702"]
+[ext_resource type="Texture2D" uid="uid://bk7ua2hvcrsnb" path="res://Graphic/TopEdge.png" id="3_dtcj6"]
+[ext_resource type="Texture2D" uid="uid://by7mqjiqvv5pe" path="res://Graphic/LeftEdge.png" id="3_k6oek"]
+[ext_resource type="Texture2D" uid="uid://bbtj3nvpd81jw" path="res://Graphic/RightEdge.png" id="4_v3yel"]
+[ext_resource type="Texture2D" uid="uid://c6c7pnb81785v" path="res://Graphic/LeftTopCorner.png" id="5_fh5df"]
+[ext_resource type="Texture2D" uid="uid://byd10gequ0kie" path="res://Graphic/LeftBottomCorner.png" id="6_xfiey"]
+[ext_resource type="Texture2D" uid="uid://t56yrxfated3" path="res://Graphic/RightUpCorner.png" id="7_wdc0r"]
+[ext_resource type="Texture2D" uid="uid://dcsbrfgr30niq" path="res://Graphic/RightBottomCorner.png" id="8_j1m2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6kin"]
+size = Vector2(64, 64)
+
+[node name="Walls" type="StaticBody2D" groups=["walls"]]
+script = ExtResource("1_sukcm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x6kin")
+
+[node name="BottomWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ol702")
+
+[node name="TopWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_dtcj6")
+
+[node name="LeftWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_k6oek")
+
+[node name="RightWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_v3yel")
+
+[node name="LeftTopWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_fh5df")
+
+[node name="LeftBotWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_xfiey")
+
+[node name="RightTopWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_wdc0r")
+
+[node name="RightBotWall" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_j1m2s")

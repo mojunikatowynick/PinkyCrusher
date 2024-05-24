@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8u22gviutc46"]
+[gd_scene load_steps=7 format=3 uid="uid://c8u22gviutc46"]
 
 [ext_resource type="Script" path="res://Scenes/joe.gd" id="1_svwbh"]
 
@@ -11,9 +11,18 @@ size = Vector2(64, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yrb3"]
 size = Vector2(112, 80)
 
+[sub_resource type="Gradient" id="Gradient_1lbuv"]
+offsets = PackedFloat32Array(0.0194805, 0.402597, 0.662338)
+colors = PackedColorArray(0.922078, 0.922078, 0.922078, 1, 0.418482, 0.418482, 0.418482, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mbtws"]
+gradient = SubResource("Gradient_1lbuv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Joe" type="CharacterBody2D"]
-light_mask = 2
-visibility_layer = 2
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -21,18 +30,16 @@ slide_on_ceiling = false
 wall_min_slide_angle = 0.0
 script = ExtResource("1_svwbh")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uvpbf")
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
-light_mask = 2
-visibility_layer = 2
 color = Color(0.490196, 0.490196, 0.490196, 1)
 polygon = PackedVector2Array(-16, -8, -16, 8, -8, 16, 8, 16, 16, 8, 16, -8, 8, -16, -7.64175, -16)
 
-[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+[node name="Arrow" type="Polygon2D" parent="Polygon2D"]
 color = Color(0.294118, 0.607843, 0.533333, 1)
 polygon = PackedVector2Array(0, -8, -8, 8, 8, 8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uvpbf")
 
 [node name="LightChangeLeyer2" type="Area2D" parent="." groups=["layer1"]]
 visible = false
@@ -53,6 +60,10 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightChangeLeyer3"]
 visible = false
 shape = SubResource("RectangleShape2D_8yrb3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = SubResource("GradientTexture2D_mbtws")
 
 [connection signal="area_entered" from="LightChangeLeyer2" to="." method="_on_light_change_leyer_2_area_entered"]
 [connection signal="area_entered" from="LightChangeLeyer3" to="." method="_on_light_change_leyer_3_area_entered"]

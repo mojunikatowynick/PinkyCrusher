@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://dum1qxdoxqdm0"]
+[gd_scene load_steps=6 format=3 uid="uid://dum1qxdoxqdm0"]
 
-[ext_resource type="Script" path="res://Scenes/left.gd" id="1_lu0fp"]
 [ext_resource type="Texture2D" uid="uid://by7mqjiqvv5pe" path="res://Graphic/LeftEdge.png" id="1_n132b"]
 [ext_resource type="Script" path="res://Scenes/StaticBody2D.gd" id="3_0jh1m"]
 
@@ -16,13 +15,12 @@ size = Vector2(64, 64)
 [node name="Left" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_lu0fp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n132b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hi26j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n132b")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_48gj2")
@@ -32,5 +30,3 @@ script = ExtResource("3_0jh1m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D2/StaticBody2D"]
 shape = SubResource("RectangleShape2D_h8wcg")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
