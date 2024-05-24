@@ -63,6 +63,7 @@ shape = SubResource("RectangleShape2D_8yrb3")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.5
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_mbtws")
 
 [connection signal="area_entered" from="LightChangeLeyer2" to="." method="_on_light_change_leyer_2_area_entered"]
