@@ -1,7 +1,15 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dirdcy6fgrbid"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://dirdcy6fgrbid"]
 
 [ext_resource type="Texture2D" uid="uid://bn2pxnxdworlq" path="res://Graphic/area.png" id="1_ce2k1"]
+[ext_resource type="PackedScene" uid="uid://bsw803kmtik4" path="res://Scenes/right.tscn" id="2_can0j"]
 [ext_resource type="Texture2D" uid="uid://tills0jqsoqy" path="res://Graphic/floor.jpg" id="2_p42os"]
+[ext_resource type="PackedScene" uid="uid://bwaeyaq8lr050" path="res://Scenes/bottom.tscn" id="3_axquj"]
+[ext_resource type="PackedScene" uid="uid://dum1qxdoxqdm0" path="res://Scenes/left.tscn" id="4_i2vdh"]
+[ext_resource type="PackedScene" uid="uid://dp05eymla3y1a" path="res://Scenes/top.tscn" id="5_xf8x4"]
+[ext_resource type="PackedScene" uid="uid://b857v4o11awb3" path="res://Scenes/left_up.tscn" id="6_o3l2q"]
+[ext_resource type="PackedScene" uid="uid://d31pdtu7oc7q8" path="res://Scenes/bot_left.tscn" id="7_g6gkx"]
+[ext_resource type="PackedScene" uid="uid://s20w8oq2luch" path="res://Scenes/right_up.tscn" id="8_q6xfo"]
+[ext_resource type="PackedScene" uid="uid://d4lcf5nja3rut" path="res://Scenes/right_down.tscn" id="9_4e162"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwubb"]
 texture = ExtResource("1_ce2k1")
@@ -47,6 +55,16 @@ texture_region_size = Vector2i(64, 64)
 2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5hpr1"]
+scenes/1/scene = ExtResource("2_can0j")
+scenes/2/scene = ExtResource("3_axquj")
+scenes/3/scene = ExtResource("4_i2vdh")
+scenes/4/scene = ExtResource("5_xf8x4")
+scenes/5/scene = ExtResource("6_o3l2q")
+scenes/6/scene = ExtResource("7_g6gkx")
+scenes/7/scene = ExtResource("8_q6xfo")
+scenes/8/scene = ExtResource("9_4e162")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2d5w"]
 texture = ExtResource("2_p42os")
 texture_region_size = Vector2i(64, 64)
@@ -59,3 +77,4 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wwubb")
 sources/3 = SubResource("TileSetAtlasSource_n2d5w")
+sources/1 = SubResource("TileSetScenesCollectionSource_5hpr1")

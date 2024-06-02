@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_i1yqg"]
 [ext_resource type="PackedScene" uid="uid://c8u22gviutc46" path="res://Scenes/joe.tscn" id="1_kxj0t"]
-[ext_resource type="PackedScene" uid="uid://ddnlreaanj0i7" path="res://Scenes/level_1.tscn" id="2_3ilc7"]
+[ext_resource type="PackedScene" uid="uid://ddnlreaanj0i7" path="res://Scenes/level_1.tscn" id="2_3xhxv"]
 [ext_resource type="PackedScene" uid="uid://d22d2q1kp4au6" path="res://Scenes/ui.tscn" id="4_gyx8o"]
 
 [sub_resource type="Gradient" id="Gradient_hkmah"]
@@ -65,7 +65,7 @@ polygon = PackedVector2Array(-376, -95, 2055, -87, 2055, 996, -376, 996)
 
 [node name="Levels" type="Node2D" parent="."]
 
-[node name="Level1" parent="Levels" instance=ExtResource("2_3ilc7")]
+[node name="Level1" parent="Levels" instance=ExtResource("2_3xhxv")]
 
 [node name="Joe" parent="." instance=ExtResource("1_kxj0t")]
 position = Vector2(440, 216)
@@ -76,7 +76,7 @@ ignore_rotation = false
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
-energy = 1.2
+energy = 100.0
 blend_mode = 1
 
 [node name="HalfLightLayer" type="PointLight2D" parent="Lights"]

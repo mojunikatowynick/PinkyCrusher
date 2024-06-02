@@ -14,10 +14,10 @@ func collision():
 			immune = true
 			await get_tree().create_timer(0.5).timeout
 			immune = false
-		elif 	Sprite.light_mask <= 2:
-			Sprite.light_mask = 4
-			immune = true
-			await get_tree().create_timer(0.5).timeout
-			immune = false
+		#elif 	Sprite.light_mask <= 2:
+			#Sprite.light_mask = 4
+			#immune = true
+			#await get_tree().create_timer(0.5).timeout
+			#immune = false
 	else:
 		pass
